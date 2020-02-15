@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <script src="./index.js"></script>
+</head>
+<body>
+  <h1>Eric the Orange Boy</h1>
+  <div id="divCanvas" ><img src="assets/images/IntroBG.jpg"/></div>
+  <div id="divControl">
+    <button id="btnStart">Start Game</button>
+    <button id="btnPause" style="display: none;">Pause Game</button>
+    Sound Volume: Min
+    <input id="vol" type="range" min="0" max="100" onchange="adjustVol()">Max
+  </div>
+  <br>
+  <div>
+    Hint: Use Up Down Left Right arrows to control Eric.
+  </div>
+  <br>
+  <div id="divShowRef">
+    <button id="btnShowRef">Show References</button>
+  </div>
+  <br>
+  <br>
+  <div id="divRef"></div>
+</body>
+</html>
