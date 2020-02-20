@@ -9,7 +9,7 @@ export default {
   width: HEAD_WIDTH,
   height: HEAD_HEIGHT,
   speed: SPEED,
-  renew: function() {  // back to the initial position when game is restarted
+  reset: function() {  // back to the initial position when game is restarted
     this.x = RIGHT_BOUND - HEAD_WIDTH;
     this.y = LOWER_BOUND;
     this.width = HEAD_WIDTH;

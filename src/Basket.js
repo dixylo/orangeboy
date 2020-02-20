@@ -8,7 +8,7 @@ export default {
   width: BASKET_WIDTH,
   height: BASKET_HEIGHT,
   speed: SPEED,
-  renew: function() {  // back to the initial position when game is restarted
+  reset: function() {  // back to the initial position when game is restarted
     this.x = RIGHT_BOUND;
     this.y = LOWER_BOUND + dY;
     this.width = BASKET_WIDTH;

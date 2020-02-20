@@ -12,12 +12,12 @@ export default class Sound {
   }
 
   play () {
-    this.sound.volume = document.getElementById("volumn").value / 100;  // control volume
+    this.sound.volume = document.getElementById("volume").value / 100;  // control volume
     this.sound.play();
   }
 
   volume () {
-    this.sound.volume = document.getElementById("volumn").value / 100;  // control volume
+    this.sound.volume = document.getElementById("volume").value / 100;  // control volume
   }
 
   stop () {
