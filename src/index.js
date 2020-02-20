@@ -13,7 +13,7 @@ import cover from "../assets/images/cover.jpg";
 import "../assets/images/favicon.ico";
 
 const { CANVAS_WIDTH, CANVAS_HEIGHT, dX } = constants;
-const { background, soundOutro, soundBg, sounds } = media;
+const { background, soundBg, soundOutro, adjustVolume } = media;
 
 const header = document.createElement("h1");
 const divCanvas = document.createElement("div");
@@ -46,8 +46,8 @@ volumn.max = "100";
 
 btnStart.addEventListener("click", startGame);
 btnPause.addEventListener("click", pauseGame);
+volumn.addEventListener("change", adjustVolume);
 btnReference.addEventListener("click", () => showRef(btnReference, pReference));
-volumn.addEventListener("change", () => sounds.forEach(sound => sound.volume()));
 
 divCanvas.appendChild(imgCover);
 divControl.appendChild(btnStart);
