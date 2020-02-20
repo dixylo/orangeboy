@@ -9,22 +9,66 @@ import media from "./Media";
 import Score from "./Score";
 import game from "./Game";
 import control from "./Control";
+import cover from "../assets/images/cover.jpg";
+import "../assets/images/favicon.ico";
 
 const { CANVAS_WIDTH, CANVAS_HEIGHT, dX } = constants;
 const { background, soundOutro, soundBg, sounds } = media;
 
-document.getElementById("btnStart").addEventListener("click", startGame);
-document.getElementById("btnPause").addEventListener("click", pauseGame);
-document.getElementById("btnShowRef").addEventListener("click", showRef);
-document.getElementById("vol").addEventListener("change", () => sounds.forEach(sound => sound.volume()));
+const header = document.createElement("h1");
+const divCanvas = document.createElement("div");
+const imgCover = document.createElement("img");
+const divControl = document.createElement("div");
+const btnStart = document.createElement("button");
+const btnPause = document.createElement("button");
+const spnLeft = document.createElement("span");
+const volumn = document.createElement("input");
+const spnRight = document.createElement("span")
+const divHowTo = document.createElement("div");
+const divReference = document.createElement("div");
+const btnReference = document.createElement("button");
+const pReference = document.createElement("p");
 
-const divCanvas = document.getElementById("divCanvas");
+imgCover.src = cover;
+btnPause.style.display = "none";
+header.innerText = "Eric the Orange Boy";
+btnStart.innerText = "Start Game";
+btnPause.innerText = "Pause Game";
+spnLeft.innerText = "Sound Volumn: Min";
+spnRight.innerText = "Max";
+divHowTo.innerText = "Hint: Use Up Down Left Right arrows to control Eric.";
+btnReference.innerText = "Show Reference";
+
+volumn.id = "volumn";
+volumn.type = "range";
+volumn.min = "0";
+volumn.max = "100";
+
+btnStart.addEventListener("click", startGame);
+btnPause.addEventListener("click", pauseGame);
+btnReference.addEventListener("click", () => showRef(btnReference, pReference));
+volumn.addEventListener("change", () => sounds.forEach(sound => sound.volume()));
+
+divCanvas.appendChild(imgCover);
+divControl.appendChild(btnStart);
+divControl.appendChild(btnPause);
+divControl.appendChild(spnLeft);
+divControl.appendChild(volumn);
+divControl.appendChild(spnRight);
+divReference.appendChild(btnReference);
+divReference.appendChild(pReference);
+document.body.appendChild(header);
+document.body.appendChild(divCanvas);
+document.body.appendChild(divControl);
+document.body.appendChild(divHowTo);
+document.body.appendChild(divReference);
+
 let context;
 let time; // current time
-let countClick = 0; // count how many times the button is clicked
-const oranges = []; // used to hold orange instances
 let score;
 let draw;
+let countClick = 0; // count how many times the button is clicked
+const oranges = []; // used to hold orange instances
 
 // Draw all the things on canvas
 function render () {
@@ -81,7 +125,7 @@ function pauseGame () {
     soundBg.play();
   }
   isPaused = !isPaused;
-  document.getElementById("btnPause").innerHTML = isPaused ? "Resume Game" : "Pause Game";
+  btnPause.innerHTML = isPaused ? "Resume Game" : "Pause Game";
 }
 
 // Initialize the game
@@ -92,7 +136,7 @@ function startGame () {
     soundBg.stop();
     oranges.splice(0, oranges.length);
     isPaused = false;
-    document.getElementById("btnPause").innerHTML = "Pause Game";
+    btnPause.innerHTML = "Pause Game";
   }
   else {
     divCanvas.removeChild(divCanvas.childNodes[0]); // Remove the cover image before entering game for 1st time
@@ -103,8 +147,8 @@ function startGame () {
   score = new Score(context, oranges);
   head.renew();
   basket.renew();
-  document.getElementById("btnStart").innerHTML = "Restart Game";
-  document.getElementById("btnPause").style.display = "inline";
+  btnStart.innerHTML = "Restart Game";
+  btnPause.style.display = "inline";
   countClick += 1;
   soundBg.play();
 }

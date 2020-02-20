@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'app.bundle.js'
   },
+  plugins: [new HtmlWebpackPlugin({ title: "Orange Boy", favicon: "assets/images/favicon.ico" })],
   module: {
     rules: [{
       test: /\.js?$/,
@@ -24,7 +26,7 @@ module.exports = {
         'css-loader'
       ]
     }, {
-      test: /\.(png|jpg|svg|gif|mp3)$/,
+      test: /\.(png|jpg|svg|gif|ico|mp3)$/,
       use: ['file-loader']
     }]
   }
