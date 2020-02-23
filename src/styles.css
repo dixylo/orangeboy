@@ -1,24 +1,78 @@
-body {
-  margin: auto;
-  width: 50%;
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #333;
+  font-family: Bubblegum;
 }
 
-h1 {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+@font-face {
+  font-family: Bubblegum;
+  src: url("../assets/fonts/Bubblegum.ttf");
 }
 
-div {
-  margin-left: 0px;
+input:hover {
+  cursor: pointer;
 }
 
 button {
+  margin: 5px;
   padding: 10px;
+  width: 130px;
   border-radius: 5px;
+  color: #333;
   font-size: 1rem;
+  font-family: Bubblegum;
+  white-space: nowrap;
 }
 
 button:hover {
+  cursor: pointer;
   background-color: #f0f1f2;
+}
+
+#divBackground {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url("../assets/images/grassland.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
+}
+
+#divContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#divCanvas {
+  border-width: 5px 5px 2.5px 5px;
+  border-style: inset;
+  background-color: #EEEEEE;
+}
+
+#divControl {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#divSound {
+  padding: 8.5px 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+#divHowTo {
+  padding: 5px;
 }
